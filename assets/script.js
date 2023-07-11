@@ -1,4 +1,4 @@
-// Created an array of objects to hold each quiz question, an array of answer choices and the location in that array where the coorect answer is located 
+// Created an array of objects to hold each quiz question, an array of answer choices and the location in that array where the coorect answer is located
 var quizQuestions = [
   {
     question: "question 1",
@@ -32,10 +32,12 @@ var quizQuestions = [
   },
 ];
 // These variables allow acess to the HTML file at those Id's
-var startButton = document.getElementById('start-button');
-var questionContainer = document.getElementById('question');
-var submissionContainer = document.getElementById('submission');
-// 
+var startButton = document.getElementById("start-button");
+var questionContainer = document.getElementById("question");
+var submissionContainer = document.getElementById("submission");
+// global variables that start the question index at the first object. Starts the timer off at 75 seconds.
+//Allows the time interval to be set while also stopping it when all the questions have been completed.
+//sets up an array for the highscores
 var currentQuestionIndex = 0;
 var timeLeft = 75;
 var timeInterval;
@@ -78,25 +80,23 @@ function showQuestion() {
 
 function checkAnswer(choiceIndex) {
   var currentQuestion = quizQuestions[currentQuestionIndex];
+  var answerContainer = document.createElement("p");
   if (choiceIndex === currentQuestion.correctAnswer) {
-    // work to display this on page
-    alert("Correct!");
-    questionContainer.innerHTML = "<p>Correct</p>";
-    console.log(questionContainer);
+    answerContainer.textContent = "Correct!";
   } else {
-    alert("Wrong!");
-    questionContainer.innerHTML = "<p>Inorrect</p>";
+    answerContainer.textContent = "Wrong!";
     timeLeft -= 10;
     if (timeLeft < 0) {
       timeLeft = 0;
     }
   }
+  questionContainer.appendChild(answerContainer);
   currentQuestionIndex++;
 
   if (currentQuestionIndex < quizQuestions.length) {
-    showQuestion();
+    setTimeout(showQuestion, 1000);
   } else {
-    endQuiz();
+    setTimeout(endQuiz, 1000);
   }
 }
 
@@ -121,6 +121,7 @@ function saveScore() {
   highScores.push(scoreObj);
 
   localStorage.setItem("highScores", JSON.stringify(highScores));
+  showHighScores();
 }
 
 function getScores() {
@@ -139,13 +140,17 @@ function getScores() {
     });
   }
 }
+function clearScores() {
+  localStorage.removeItem("highScores");
+  window.location.reload();
+}
 
 function showHighScores() {
   var highScoresList = document.getElementById("highscores");
-  var quizContainer = document.getElementById('quiz-container');
-  quizContainer.style.display = 'none';
-  var highScoresLink = document.getElementById('highscores-link');
-  highScoresLink.style.display = 'none'
+  var quizContainer = document.getElementById("quiz-container");
+  quizContainer.style.display = "none";
+  var highScoresLink = document.getElementById("highscores-link");
+  highScoresLink.style.display = "none";
   highScoresList.innerHTML = "<h2>High Scores</h2>";
 
   for (var i = 0; i < highScores.length; i++) {
@@ -153,7 +158,9 @@ function showHighScores() {
     scoreItem.textContent = highScores[i].initials + ": " + highScores[i].score;
     highScoresList.appendChild(scoreItem);
   }
-highScoresList.innerHTML = "<button onclick='#quiz-container'>Go Back</button> <button onclick="
+  var highScoresButtons = document.getElementById("highscores-buttons");
+  highScoresButtons.innerHTML =
+    "<button onclick='window.location.reload()'>Go Back</button> <button onclick='clearScores()'>Clear Scores</button>";
 }
 
 getScores();
