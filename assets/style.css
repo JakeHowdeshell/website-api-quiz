@@ -3,49 +3,20 @@
   --button-text: white;
 }
 
+/* Highscores Styles */
 #highscores-container {
   display: none;
 }
 
 .highscores-link {
-  color: pink;
+  color: var(--button-color);
   text-decoration: none;
 }
 
 .highscores-link:hover {
   color: lightblue;
 }
-.timer {
-  position: absolute;
-  right: 20px;
-}
-.start {
-  margin-top: 100px;
-}
-.start-heading,
-.start-content,
-.start-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.start-button {
-  position: fixed;
-  right: 44.5%;
-  background-color: var(--button-color);
-  color: var(--button-text);
-  padding: 10px 30px;
-  border-radius: 10px;
-}
 
-.start-button:hover,
-.highscores-buttons button:hover {
-  background-color: blue;
-  cursor: pointer;
-  padding-bottom: 11px;
-  padding-top: 11px;
-}
 .highscores {
   margin-top: 100px;
   display: flex;
@@ -53,6 +24,7 @@
   align-items: center;
   margin-bottom: 30px;
 }
+
 .highscores ul {
   color: var(--button-color);
   background-color: rgb(199, 176, 199);
@@ -60,15 +32,73 @@
   border-radius: 5px;
   margin: 5px;
 }
+
 .highscores-buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.highscores-buttons button {
+
+/* Timer Styles */
+.timer {
+  position: absolute;
+  right: 20px;
+}
+/* Quiz Start Styles */
+.start {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Button Stylings */
+.highscores-buttons button,
+.submission button {
   margin: 0 5px;
   background-color: var(--button-color);
   color: var(--button-text);
   padding: 10px 30px;
   border-radius: 10px;
+}
+
+.start-button,
+.question button {
+  background-color: var(--button-color);
+  color: var(--button-text);
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+
+.start-button:hover,
+.highscores-buttons button:hover,
+.question button:hover,
+.initials button:hover {
+  background-color: blue;
+  cursor: pointer;
+  padding-bottom: 11px;
+  padding-top: 11px;
+}
+
+/* Question Stylings */
+
+.question {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Submisison Stylings */
+.submission h1,
+.submission p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.initials {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
