@@ -151,16 +151,12 @@ function saveScore() {
   showHighScores();
 }
 // grabs the scores stored in local storage and places them in the variable storedScores which is puts them on the page where the id highscores is located
-// it will also block the user from accessing the highscores if there are none present.
 // also provides an event listener as a click to a hyperlink that brings you ot all the stored scores.
 function getScores() {
   var storedScores = localStorage.getItem("highScores");
 
   if (storedScores !== null) {
     highScores = JSON.parse(storedScores);
-
-    var highScoresContainer = document.getElementById("highscores-container");
-    highScoresContainer.style.display = "block";
 
     var highScoresLink = document.getElementById("highscores-link");
     highScoresLink.addEventListener("click", function (event) {

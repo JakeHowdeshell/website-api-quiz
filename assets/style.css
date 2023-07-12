@@ -3,11 +3,6 @@
   --button-text: white;
 }
 
-/* Highscores Styles */
-#highscores-container {
-  display: none;
-}
-
 .highscores-link {
   color: var(--button-color);
   text-decoration: none;
