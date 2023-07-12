@@ -5,25 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>API Quiz</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
     <div>
       <header class="timer" id="timer"></header>
       <div class="highscores-container" id="highscores-container">
-        <a class="highscores-link" href="#" id="highscores-link">View High Scores</a>
+        <a class="highscores-link" href="#" id="highscores-link"
+          >View High Scores</a
+        >
         <div class="highscores" id="highscores"></div>
         <div class="highscores-buttons" id="highscores-buttons"></div>
-        
       </div>
       <main class="quiz-container" id="quiz-container">
         <div class="start" id="start">
-          <h2 class="start-heading">Coding Quiz Challenge!</h2>
-          <p class="start-content">Answer the provided code related questions to the best of your ability within the time limit.<br> Keep in mind that any incorrect answer will penalize your score by reducing 10 seconds from the clock.</p>
+          <h2>Coding Quiz Challenge!</h2>
+          <p>
+            Answer the provided code related questions to the best of your
+            ability within the time limit.<br />
+            Keep in mind that any incorrect answer will penalize your score by
+            reducing 10 seconds from the clock.
+          </p>
           <button class="start-button" id="start-button">Start Quiz</button>
         </div>
         <div class="question" id="question"></div>
-        <div class="submisison" id="submission"></div>
+        <div class="submission" id="submission"></div>
       </main>
     </div>
     <script type="text/javascript" src="assets/script.js"></script>
