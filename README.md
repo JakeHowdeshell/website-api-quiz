@@ -39,7 +39,7 @@ The saveScore function stores both the initials and score to a object variable a
 ![Start-page](images/StartPage.png)
 ![Question-page](images/QuestionPage.png)
 ![Submission-Page](images/SubmissionPage.png)
-![Highscore-Page](images/HighscorePage.png)
+![HIghscore-Page](images/HighscorePage.png)
 
 ![Video](https://watch.screencastify.com/v/tb8PlLC3pwMdJEO091aJ)
 
